@@ -1,5 +1,11 @@
 # Word Frequency
 
+From Rebecca: 
+Jupyter Notebooks: esp sequences, string methods, working with files 
+automate the boring stuff also has good chapters on these things 
+
+opening and reading a file are different - have to open first, then read. --> notebook 9, using "with" 
+
 ## Directions
 
 In this project, you will use `open` to read in a text file and calculate the frequency of words in that file.
