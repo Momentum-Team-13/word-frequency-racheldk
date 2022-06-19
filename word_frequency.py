@@ -17,6 +17,10 @@ def print_word_freq(file):
     with open(file) as open_file:
         text = open_file.read()
         print(text)
+
+        words_without_breaks = []
+        words_to_keep = []
+        words_to_count = []
         
         no_punctuation = text.replace("?", "").replace(",", "").replace(".", "").replace("!", "").replace('"', '').replace(':', '').replace(';', '')
         # print(f'no punctuation: {no_punctuation}')       
@@ -25,11 +29,27 @@ def print_word_freq(file):
         # print(f'lower_case: {lower_case}')
 
         text_list = lower_case.split(" ")
-    #  FIND A WAY TO GET THE NEW LINES /N OUT
         print(f'text_list: {text_list}')
 
-        words_to_keep = []
-        words_to_count = []
+
+
+    #  FIND A WAY TO GET THE NEW LINES /N OUT
+    # CODE BELOW ISN'T DOING WHAT IT'S SUPPOSED TO DO YET
+        def remove_breaks(input):
+            for word in input:
+                text_list_no_breaks = word.replace("\\n", "444")
+                words_without_breaks.append(word)
+                
+        remove_breaks(text_list)
+        print(f'words without breaks: {words_without_breaks}')
+
+    # CODE ABOVE ISN'T WORKING YET 
+
+
+
+
+
+
 
         def check_words(text_list):
             for word in text_list:
@@ -39,8 +59,8 @@ def print_word_freq(file):
                 else:
                     # print(word)
                     words_to_keep.append(word)
-                    # print(f'Now the word count list is: {words_to_keep}')
-        check_words(text_list)
+                    print(f'words to keep: {words_to_keep}')
+        check_words(words_without_breaks)
         # print(words_to_keep)   
 
         def do_not_add_repeat_words(input):
