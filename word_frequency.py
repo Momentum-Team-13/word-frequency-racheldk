@@ -82,6 +82,9 @@ def print_word_freq(file):
         # print(word_totals['star_test'])
         # print('*' * int(word_totals['hello']))
 
+        ordered_words = {k: v for k, v in sorted(word_totals.items(), key=lambda item: item[1], reverse=True)}
+        # print(ordered_words)
+
         def add_stars_and_format(input):
             for word in input:
                 name = word
@@ -90,7 +93,7 @@ def print_word_freq(file):
                 star = '*' * int(word_totals[word])
                 print("{:<20} {:<1} {:<2} {:<40}".format(name.rjust(20), bar, number, star))
                 
-        add_stars_and_format(word_totals)
+        add_stars_and_format(ordered_words)
 
         
     # opened the file and made it a long string with new lines in it 
