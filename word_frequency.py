@@ -1,4 +1,5 @@
 from http.client import REQUESTED_RANGE_NOT_SATISFIABLE
+import re
 
 
 STOP_WORDS = [
@@ -29,25 +30,16 @@ def print_word_freq(file):
         # print(f'lower_case: {lower_case}')
 
         text_list = lower_case.split(" ")
-        print(f'text_list: {text_list}')
+        # print(f'text_list: {text_list}')
 
 
-
-    #  FIND A WAY TO GET THE NEW LINES /N OUT
-    # CODE BELOW ISN'T DOING WHAT IT'S SUPPOSED TO DO YET
         def remove_breaks(input):
             for word in input:
-                text_list_no_breaks = word.replace("\\n", "444")
+                word = re.sub("\\n", "", word)
                 words_without_breaks.append(word)
                 
         remove_breaks(text_list)
-        print(f'words without breaks: {words_without_breaks}')
-
-    # CODE ABOVE ISN'T WORKING YET 
-
-
-
-
+        # print(f'words without breaks: {words_without_breaks}')
 
 
 
@@ -59,7 +51,7 @@ def print_word_freq(file):
                 else:
                     # print(word)
                     words_to_keep.append(word)
-                    print(f'words to keep: {words_to_keep}')
+                    # print(f'words to keep: {words_to_keep}')
         check_words(words_without_breaks)
         # print(words_to_keep)   
 
